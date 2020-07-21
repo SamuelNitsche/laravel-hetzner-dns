@@ -3,7 +3,6 @@
 namespace SamuelNitsche\LaravelHetznerDns;
 
 use Illuminate\Support\ServiceProvider;
-use SamuelNitsche\LaravelHetznerDns\Commands\SkeletonCommand;
 
 class LaravelHetznerDnsServiceProvider extends ServiceProvider
 {
