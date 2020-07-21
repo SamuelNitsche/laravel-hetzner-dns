@@ -1,17 +1,20 @@
 {
-    "name": "spatie/:package_name",
-    "description": ":package_description",
+    "name": "samuelnitsche/laravel-hetzner-dns",
+    "description": "Simple laravel wrapper for the hetzner dns api",
     "keywords": [
-        "spatie",
-        ":package_name"
+        "laravel-hetzner-dns",
+        "hetzner",
+        "laravel",
+        "hetzner dns",
+        "api"
     ],
-    "homepage": "https://github.com/spatie/:package_name",
+    "homepage": "https://github.com/samuelnitsche/laravel-hetzner-dns",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
+            "name": "Samuel Nitsche",
+            "email": "mail@samynitsche.de",
+            "homepage": "https://samynitsche.de",
             "role": "Developer"
         }
     ],
@@ -27,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "SamuelNitsche\\LaravelHetznerDns\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "SamuelNitsche\\LaravelHetznerDns\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,11 +50,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
-            }
+                "SamuelNitsche\\LaravelHetznerDns\\LaravelHetznerDnsServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
