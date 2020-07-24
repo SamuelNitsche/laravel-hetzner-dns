@@ -1,3 +1,5 @@
+# THIS PACKAGE IS CURRENTLY IN DEVELOPMENT. DO NOT USE IN PRODUCTION YET.
+
 # Laravel Hetzner Dns
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/samuelnitsche/laravel-hetzner-dns.svg?style=flat-square)](https://packagist.org/packages/samuelnitsche/laravel-hetzner-dns)
