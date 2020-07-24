@@ -14,7 +14,7 @@ class HetznerApi
 
     public function __construct(string $apiKey = null)
     {
-        $this->apiKey = config('laravel-hetzner-dns.key', $apiKey);
+        $this->apiKey = config('laravel-hetzner-dns.key') ?? $apiKey;
     }
 
     public function getAllRecords()
