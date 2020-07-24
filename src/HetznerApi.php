@@ -35,7 +35,7 @@ class HetznerApi
         return new Record($data);
     }
 
-    public function request($method, $endpoint)
+    protected function request(string $method, string $endpoint, array $headers = [])
     {
         throw_unless($this->apiKey, MissingApiKeyException::class);
 
