@@ -10,13 +10,13 @@ class LaravelHetznerDnsServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-hetzner-dns.php'),
+                __DIR__.'/../config/laravel-hetzner-dns.php' => config_path('laravel-hetzner-dns.php'),
             ], 'config');
         }
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-hetzner-dns');
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-hetzner-dns.php', 'laravel-hetzner-dns');
     }
 }
