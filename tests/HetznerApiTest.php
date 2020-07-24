@@ -4,6 +4,7 @@ namespace SamuelNitsche\LaravelHetznerDns\Tests;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use SamuelNitsche\LaravelHetznerDns\Zone;
 use SamuelNitsche\LaravelHetznerDns\Record;
 use SamuelNitsche\LaravelHetznerDns\HetznerApi;
 use SamuelNitsche\LaravelHetznerDns\Exceptions\MissingApiKeyException;
@@ -65,5 +66,74 @@ class HetznerApiTest extends TestCase
         $record = (new HetznerApi('foobar'))->getRecord('foo');
 
         $this->assertInstanceOf(Record::class, $record);
+    }
+
+    /** @test */
+    public function it_returns_a_collection_of_zones()
+    {
+        Http::fake(function () {
+            return [
+                "zones" => [
+                    [
+                        "id" => "string",
+                        "created" => "2020-07-24T07:56:45Z",
+                        "modified" => "2020-07-24T07:56:45Z",
+                        "legacy_dns_host" => "string",
+                        "legacy_ns" => [],
+                        "name" => "string",
+                        "ns" => [],
+                        "owner" => "string",
+                        "paused" => true,
+                        "permission" => "string",
+                        "project" => "string",
+                        "registrar" => "string",
+                        "status" => "verified",
+                        "ttl" => 0,
+                        "verified" => "2020-07-24T07:56:45Z",
+                        "records_count" => 0,
+                        "is_secondary_dns" => true,
+                        "txt_verification" => []
+                    ]
+                ],
+            ];
+        });
+
+        $zones = (new HetznerApi('foobar'))->getAllZones();
+
+        $this->assertInstanceOf(Collection::class, $zones);
+        $this->assertInstanceOf(Zone::class, $zones->first());
+    }
+
+    /** @test */
+    public function it_returns_a_single_zone()
+    {
+        Http::fake(function () {
+            return [
+                "zone" => [
+                    "id" => "string",
+                    "created" => "2020-07-24T07:56:45Z",
+                    "modified" => "2020-07-24T07:56:45Z",
+                    "legacy_dns_host" => "string",
+                    "legacy_ns" => [],
+                    "name" => "string",
+                    "ns" => [],
+                    "owner" => "string",
+                    "paused" => true,
+                    "permission" => "string",
+                    "project" => "string",
+                    "registrar" => "string",
+                    "status" => "verified",
+                    "ttl" => 0,
+                    "verified" => "2020-07-24T07:56:45Z",
+                    "records_count" => 0,
+                    "is_secondary_dns" => true,
+                    "txt_verification" => []
+                ]
+            ];
+        });
+
+        $zone = (new HetznerApi('foobar'))->getZone('foo');
+
+        $this->assertInstanceOf(Zone::class, $zone);
     }
 }

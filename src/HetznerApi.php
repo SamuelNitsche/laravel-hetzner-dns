@@ -35,12 +35,44 @@ class HetznerApi
         return new Record($data);
     }
 
+    public function getAllZones($headers = [])
+    {
+        $data = $this->request('get', 'zones', $headers)['zones'];
+
+        return collect($data)->mapInto(Zone::class);
+    }
+
+    public function getZone($zone)
+    {
+        if ($zone instanceof Zone) {
+            $zone = $zone->getId();
+        }
+
+        $data = $this->request('get', "zones/{$zone}")['zone'];
+
+        return new Zone($data);
+    }
+
+    public function getZoneByName(string $name)
+    {
+        return $this->getZonesByName($name)->first();
+    }
+
+    public function getZonesByName(string $name)
+    {
+        return $this->getAllZones([
+            'query' => [
+                'name' => $name,
+            ]
+        ]);
+    }
+
     protected function request(string $method, string $endpoint, array $headers = [])
     {
         throw_unless($this->apiKey, MissingApiKeyException::class);
 
-        return Http::withHeaders([
+        return Http::withHeaders(array_merge([
             'Auth-API-Token' => $this->apiKey,
-        ])->$method("{$this->baseUrl}/{$endpoint}")->json();
+        ], $headers))->$method("{$this->baseUrl}/{$endpoint}")->json();
     }
 }
