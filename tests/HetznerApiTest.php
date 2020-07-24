@@ -4,10 +4,10 @@ namespace SamuelNitsche\LaravelHetznerDns\Tests;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
-use SamuelNitsche\LaravelHetznerDns\Zone;
-use SamuelNitsche\LaravelHetznerDns\Record;
-use SamuelNitsche\LaravelHetznerDns\HetznerApi;
 use SamuelNitsche\LaravelHetznerDns\Exceptions\MissingApiKeyException;
+use SamuelNitsche\LaravelHetznerDns\HetznerApi;
+use SamuelNitsche\LaravelHetznerDns\Record;
+use SamuelNitsche\LaravelHetznerDns\Zone;
 
 class HetznerApiTest extends TestCase
 {
@@ -22,27 +22,27 @@ class HetznerApiTest extends TestCase
     /** @test */
     public function it_returns_a_collection_of_records()
     {
-    	Http::fake(function () {
-    		return [
-	    		"records" => [
-				    [
-				        "type" => "A",
-				        "id" => "string",
-				        "created" => "2020-07-24T07:56:45Z",
-				        "modified" => "2020-07-24T07:56:45Z",
-				        "zone_id" => "string",
-				        "name" => "string",
-				        "value" => "string",
-				        "ttl" => 0
-				    ]
-				],
-			];
-    	});
+        Http::fake(function () {
+            return [
+                "records" => [
+                    [
+                        "type" => "A",
+                        "id" => "string",
+                        "created" => "2020-07-24T07:56:45Z",
+                        "modified" => "2020-07-24T07:56:45Z",
+                        "zone_id" => "string",
+                        "name" => "string",
+                        "value" => "string",
+                        "ttl" => 0,
+                    ],
+                ],
+            ];
+        });
 
-    	$records = (new HetznerApi('foobar'))->getAllRecords();
+        $records = (new HetznerApi('foobar'))->getAllRecords();
 
-    	$this->assertInstanceOf(Collection::class, $records);
-    	$this->assertInstanceOf(Record::class, $records->first());
+        $this->assertInstanceOf(Collection::class, $records);
+        $this->assertInstanceOf(Record::class, $records->first());
     }
 
     /** @test */
@@ -58,7 +58,7 @@ class HetznerApiTest extends TestCase
                     "zone_id" => "string",
                     "name" => "string",
                     "value" => "string",
-                    "ttl" => 0
+                    "ttl" => 0,
                 ],
             ];
         });
@@ -92,8 +92,8 @@ class HetznerApiTest extends TestCase
                         "verified" => "2020-07-24T07:56:45Z",
                         "records_count" => 0,
                         "is_secondary_dns" => true,
-                        "txt_verification" => []
-                    ]
+                        "txt_verification" => [],
+                    ],
                 ],
             ];
         });
@@ -127,8 +127,8 @@ class HetznerApiTest extends TestCase
                     "verified" => "2020-07-24T07:56:45Z",
                     "records_count" => 0,
                     "is_secondary_dns" => true,
-                    "txt_verification" => []
-                ]
+                    "txt_verification" => [],
+                ],
             ];
         });
 
