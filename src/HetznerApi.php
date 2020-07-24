@@ -12,9 +12,9 @@ class HetznerApi
     public $baseUrl = "https://dns.hetzner.com/api/v1";
 
 
-    public function __construct()
+    public function __construct(string $apiKey = null)
     {
-        $this->apiKey = config('laravel-hetzner-dns.key');
+        $this->apiKey = config('laravel-hetzner-dns.key', $apiKey);
     }
 
     public function getAllRecords()
