@@ -30,8 +30,6 @@ class Zone
     
     protected $permission;
     
-    protected $zoneType;
-    
     protected $status;
     
     protected $paused;
@@ -56,7 +54,6 @@ class Zone
         $this->project = $data['project'];
         $this->owner = $data['owner'];
         $this->permission = $data['permission'];
-        $this->zoneType = $data['zone_type'];
         $this->status = $data['status'];
         $this->paused = $data['paused'];
         $this->isSecondaryDns = $data['is_secondary_dns'];
@@ -122,11 +119,6 @@ class Zone
     public function getPermission()
     {
         return $this->permission;
-    }
-
-    public function getType()
-    {
-        return $this->zoneType;
     }
 
     public function getStatus()
