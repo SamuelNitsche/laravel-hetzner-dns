@@ -63,7 +63,7 @@ class HetznerApi
         return $this->getAllZones([
             'query' => [
                 'name' => $name,
-            ]
+            ],
         ]);
     }
 

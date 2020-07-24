@@ -12,35 +12,35 @@ class Zone
 
     protected $ttl;
 
-	protected $registrar;
-	
-	protected $legacyDnsHost;
-	
-	protected $legacyNs;
-	
-	protected $ns;
-	
-	protected $created;
-	
-	protected $modified;
-	
-	protected $project;
-	
-	protected $owner;
-	
-	protected $permission;
-	
-	protected $zoneType;
-	
-	protected $status;
-	
-	protected $paused;
-	
-	protected $isSecondaryDns;
-	
-	protected $txtVerification;
-	
-	protected $recordCount;
+    protected $registrar;
+    
+    protected $legacyDnsHost;
+    
+    protected $legacyNs;
+    
+    protected $ns;
+    
+    protected $created;
+    
+    protected $modified;
+    
+    protected $project;
+    
+    protected $owner;
+    
+    protected $permission;
+    
+    protected $zoneType;
+    
+    protected $status;
+    
+    protected $paused;
+    
+    protected $isSecondaryDns;
+    
+    protected $txtVerification;
+    
+    protected $recordCount;
 
     public function __construct($data)
     {
@@ -76,81 +76,81 @@ class Zone
 
     public function getTtl()
     {
-    	return $this->ttl;
+        return $this->ttl;
     }
 
     public function getRegistrar()
     {
-    	return $this->registrar;
+        return $this->registrar;
     }
 
     public function getLegacyDnsHost()
     {
-    	return $this->legacyDnsHost;
+        return $this->legacyDnsHost;
     }
 
     public function getLegacyNs()
     {
-    	return $this->legacyNs;
+        return $this->legacyNs;
     }
 
     public function getNs()
     {
-    	return $this->ns;
+        return $this->ns;
     }
 
     public function getCreated()
     {
-    	return Carbon::parse($this->created);
+        return Carbon::parse($this->created);
     }
 
     public function getModified()
     {
-    	return Carbon::parse($this->modified);
+        return Carbon::parse($this->modified);
     }
 
     public function getProject()
     {
-    	return $this->project;
+        return $this->project;
     }
 
     public function getOwner()
     {
-    	return $this->owner;
+        return $this->owner;
     }
 
     public function getPermission()
     {
-    	return $this->permission;
+        return $this->permission;
     }
 
     public function getType()
     {
-    	return $this->zoneType;
+        return $this->zoneType;
     }
 
     public function getStatus()
     {
-    	return $this->status;
+        return $this->status;
     }
 
     public function isPaused()
     {
-    	return $this->paused;
+        return $this->paused;
     }
 
     public function isSecondaryDns()
     {
-    	return $this->isSecondaryDns;
+        return $this->isSecondaryDns;
     }
 
     public function getTxtVerification()
     {
-    	return $this->txtVerification;
+        return $this->txtVerification;
     }
 
     public function getRecordCount()
     {
-    	return $this->recordCount;
+        return $this->recordCount;
     }
 }
