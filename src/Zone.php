@@ -32,6 +32,8 @@ class Zone
     
     protected $status;
     
+    protected $verifiedAt;
+    
     protected $paused;
     
     protected $isSecondaryDns;
@@ -55,6 +57,7 @@ class Zone
         $this->owner = $data['owner'];
         $this->permission = $data['permission'];
         $this->status = $data['status'];
+        $this->verifiedAt = $data['verified'];
         $this->paused = $data['paused'];
         $this->isSecondaryDns = $data['is_secondary_dns'];
         $this->txtVerification = $data['txt_verification'];
@@ -86,12 +89,12 @@ class Zone
         return $this->legacyDnsHost;
     }
 
-    public function getLegacyNs()
+    public function getLegacyNameservers()
     {
         return $this->legacyNs;
     }
 
-    public function getNs()
+    public function getNameservers()
     {
         return $this->ns;
     }
@@ -124,6 +127,11 @@ class Zone
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function getVerifiedAt()
+    {
+        return Carbon::parse($this->verifiedAt);
     }
 
     public function isPaused()
