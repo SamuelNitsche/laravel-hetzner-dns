@@ -13,33 +13,33 @@ class Zone
     protected $ttl;
 
     protected $registrar;
-    
+
     protected $legacyDnsHost;
-    
+
     protected $legacyNs;
-    
+
     protected $ns;
-    
+
     protected $created;
-    
+
     protected $modified;
-    
+
     protected $project;
-    
+
     protected $owner;
-    
+
     protected $permission;
-    
+
     protected $status;
-    
+
     protected $verifiedAt;
-    
+
     protected $paused;
-    
+
     protected $isSecondaryDns;
-    
+
     protected $txtVerification;
-    
+
     protected $recordCount;
 
     public function __construct($data)

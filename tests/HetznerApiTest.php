@@ -16,7 +16,7 @@ class HetznerApiTest extends TestCase
     {
         $this->expectException(MissingApiKeyException::class);
 
-        $client = (new HetznerApi)->getAllRecords();
+        $client = (new HetznerApi())->getAllRecords();
     }
 
     /** @test */
