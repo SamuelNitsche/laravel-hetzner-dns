@@ -24,10 +24,10 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "orchestra/testbench": "^5.0 || ^6.0",
-        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^6.15",
+        "phpunit/phpunit": "^9.3",
         "psalm/plugin-laravel": "^1.2",
-        "vimeo/psalm": "^3.11 || ^4.0"
+        "vimeo/psalm": "^4.8"
     },
     "autoload": {
         "psr-4": {
